@@ -13,7 +13,7 @@ initializeCastApi = function() {
   });
 };
 
-castBoard = function() {
+cast = function(state) {
   var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
-  console.log(castSession.sendMessage('urn:x-cast:asocijacije', { msg: 'cao cao' }));
+  console.log(castSession.sendMessage('urn:x-cast:asocijacije', state));
 }

@@ -10,10 +10,28 @@
 </head>
 <body>
 
-  <button is="google-cast-button"></button>
+  <div id="controls">
+    <button is="google-cast-button" class="cast-btn"></button>
+    <div class="play-btn">PLAY</div>
+    <div class="spoiler-btn">SPOILER</div>
+  </div>
 
-  <div id="spoilerBtn" onclick="castBoard()">SPOILER</div>
   <div id="game"></div>
+
+  <div id="scoreboard">
+    <div class="teamA">0</div>
+    <div class="teamB">0</div>
+  </div>
+
+  <div class="modal">
+    <div class="modal-view">
+      <div class="question">Which team clicked on an assasin?</div>
+      <br>
+      <div class="team teamA">Team A</div>
+      <div class="team teamB">Team B</div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
 
 </body>
 <script src="rijeci.js"></script>
@@ -24,24 +42,62 @@
 <script src="chromecast.js"></script>
 <script type="text/javascript">
 var state = {
-  nowPlaying: 'teamA',
+  in_progress: false,
+  first_team: '',
+  words: [],
   score: [0, 0],
-  board: []
+  board: [],
+  revealed: []
 }
 
 $(document).ready(function(){
-  state.board = generateBoard(state.nowPlaying);
-  var words = getRandomWords(rijeci, 25);
 
-  $.each(words, function(i, word){
-    $("#game").append('<div class="word ' + state.board[i] + '">' + word + '</div>');
-  });
+  $('.play-btn').on('click', function() {
+    startGame();
+  })
 
-  $('#spoilerBtn').on('mouseenter mouseleave', function() {
+  $('.spoiler-btn').on('mouseenter mouseleave', function() {
     $('#game').toggleClass('spoiler');
   });
 
+  $('#game').on('click', '.word', function(){
+    if(state.in_progress) {
+      revealWord(parseInt($(this).attr('data-index')));
+    }
+  });
+
+  $('.modal').on('click', '.team', function(){
+    state.score[($(this).hasClass('teamA') ? 1 : 0)]++;
+    renderScore();
+    $('.modal').toggleClass('modal-visible');
+  });
+
 })
+
+function startGame() {
+  state.in_progress = true;
+  if(state.first_team === '') state.first_team = 'teamA';
+  else state.first_team = state.first_team === 'teamA' ? 'teamB' : 'teamA';
+  state.board = generateBoard(state.first_team);
+  state.words = getRandomWords(rijeci, 25);
+  state.revealed = [];
+  render();
+  cast(state);
+}
+
+function render() {
+  $('#game').html('');
+  $.each(state.words, function(i, word){
+    var classes = state.revealed.indexOf(i) < 0 ? 'word' : 'word revealed';
+    $('#game').append('<div class="' + classes + ' ' + state.board[i] + '" data-index="' + i + '">' + word + '</div>');
+  });
+  $('#game').append('<div class="clearfix"></div>');
+}
+
+function renderScore() {
+  $("#scoreboard .teamA").html(state.score[0]);
+  $("#scoreboard .teamB").html(state.score[1]);
+}
 
 function generateBoard(first) {
   var teamA = first === 'teamA' ? 9 : 8;
@@ -54,6 +110,40 @@ function generateBoard(first) {
   board[board.length-1] = 'assasin';
 
   return shuffle(board);
+}
+
+function revealWord(index) {
+  if(state.revealed.indexOf(index) < 0) {
+    state.revealed.push(index);
+    $('.word[data-index=' + index + ']').addClass('revealed');
+    cast(state);
+    checkForWinner(index);
+  }
+}
+
+function checkForWinner(index) {
+  var teamA = calcRemainingFields('teamA');
+  var teamB = calcRemainingFields('teamB');
+  var in_progress = false;
+
+  if(teamA === 0) {
+    state.score[0]++;
+  } else if(teamB === 0) {
+    state.score[1]++;
+  } else if(state.board[index] === 'assasin') {
+    $('.modal').toggleClass('modal-visible');
+  } else {
+    in_progress = true;
+  }
+
+  state.in_progress = in_progress;
+  if(!in_progress) {
+    renderScore();
+  }
+}
+
+function calcRemainingFields(field_value) {
+  return state.board.filter(function(field, i) { return field === field_value }).length - state.board.filter(function(field, i) { return field === field_value && state.revealed.indexOf(i) >= 0 }).length;
 }
 
 function shuffle(words) {

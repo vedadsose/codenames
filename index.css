@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 #game {
   width: 800px;
-  margin: 50px auto;
+  margin: 20px auto;
 }
 
 #game .word {
@@ -26,29 +32,124 @@
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
-#game.spoiler .teamA {
+#game.spoiler .teamA,
+#game .word.revealed.teamA {
   background: rgb(231, 76, 60);
 }
 
-#game.spoiler .teamB {
+#game.spoiler .teamB,
+#game .word.revealed.teamB {
   background: rgb(52, 152, 219);
 }
 
-#game.spoiler .neutral {
+#game.spoiler .neutral,
+#game .word.revealed.neutral {
   background: rgb(46, 204, 113);
 }
 
-#game.spoiler .assasin {
+#game.spoiler .assasin,
+#game .word.revealed.assasin {
   background: #2c3e50;
 }
 
-#spoilerBtn {
-  width: 300px;
+#game.spoiler .revealed {
+  opacity: 0.3;
+}
+
+#controls {
+  text-align: center;
+}
+
+.cast-btn {
+  display: inline-block;
+  width: 50px;
   height: 50px;
-  background: #f39c12;
-  color: #fff;
+}
+
+.play-btn {
+  display: inline-block;
+  vertical-align: top;
   letter-spacing: 5px;
   text-align: center;
   line-height: 50px;
-  margin: 20px auto;
+  background: #3498db;
+  color: #fff;
+  padding: 0 30px;
+}
+
+.spoiler-btn {
+  display: inline-block;
+  vertical-align: top;
+  background: #f39c12;
+  color: #fff;
+  padding: 0 30px;
+  letter-spacing: 5px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.modal.modal-visible {
+  display: block;
+}
+
+.modal-view {
+  width: 600px;
+  background: #fff;
+  padding: 15px;
+  margin: 50px auto;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+}
+
+.modal-view .question {
+  font-size: 20px;
+}
+
+.team {
+  width: 49%;
+  float: left;
+  text-align: center;
+  padding: 15px;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+.team.teamA {
+  background: rgb(231, 76, 60);
+  margin-right: 2%;
+}
+
+.team.teamB {
+  background: rgb(52, 152, 219);
+}
+
+.clearfix {
+  clear: both;
+}
+
+#scoreboard div {
+  width: 50%;
+  float: left;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: #fff;
+}
+
+#scoreboard .teamA {
+  text-align: right;
+  background: rgb(231, 76, 60);
+}
+
+#scoreboard .teamB {
+  background: rgb(52, 152, 219);
 }
