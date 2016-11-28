@@ -116,8 +116,8 @@ function revealWord(index) {
   if(state.revealed.indexOf(index) < 0) {
     state.revealed.push(index);
     $('.word[data-index=' + index + ']').addClass('revealed');
-    cast(state);
     checkForWinner(index);
+    cast(state);
   }
 }
 
@@ -168,7 +168,7 @@ function getRandomWords(words, n) {
   var results = [];
   while(results.length < n) {
     rnd = getRandomInt(0, words.length);
-    if(results.indexOf(words[rnd]) < 0) {
+    if(results.indexOf(words[rnd]) === -1) {
       results.push(words[rnd]);
     }
   }
@@ -176,7 +176,7 @@ function getRandomWords(words, n) {
 }
 
 function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 </script>
