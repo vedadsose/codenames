@@ -10,18 +10,59 @@
 </head>
 <body>
 
-  <div id="controls">
-    <button is="google-cast-button" class="cast-btn"></button>
-    <div class="play-btn">PLAY</div>
-    <div class="spoiler-btn">SPOILER</div>
+<div class="wrap">
+
+  <div id="scoreboard">
+    <div class="dzeno-team">
+      <div class="slider teamA">0</div>
+      <div class="img">
+        <img src="dzeno.png" />
+      </div>
+
+      <div class="score">
+        <h1 class="name">Dzeno</h1>
+        <div class="points">
+          2
+        </div>
+      </div>
+
+    </div>
+
+    <div class="asi-team">
+      <div class="slider teamB">0</div>
+      <div class="img">
+        <img src="asi.jpg" />
+      </div>
+
+      <div class="score">
+        <h1 class="name">Asi</h1>
+        <div class="points">
+          2
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
   <div id="game"></div>
 
-  <div id="scoreboard">
-    <div class="teamA">0</div>
-    <div class="teamB">0</div>
+  <div id="controls">
+    <button is="google-cast-button" class="cast-btn">
+      <img src="google-cast-logo.svg" alt="cast-icon" />
+    </button>
+    <div class="play-btn">PLAY</div>
+    <div class="spoiler-btn">SPOILER</div>
+    <div class="refresh-btn">REFRESH</div>
+    <div class="limit-btn">limit
+      <div class="num">
+        10
+      </div>
+    </div>
+
   </div>
+
+</div>
 
   <div class="modal">
     <div class="modal-view">
