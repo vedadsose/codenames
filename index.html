@@ -13,31 +13,35 @@
 <div class="wrap">
 
   <div id="scoreboard">
-    <div class="dzeno-team">
-      <div class="slider teamA">0</div>
-      <div class="img">
-        <img src="dzeno.png" />
+    <div class="dzeno-team teamA">
+      <div class="slider">
+        <div class="img">
+          <img src="dzeno.png" />
+        </div>
+        <div class="win-track"></div>
       </div>
 
       <div class="score">
         <h1 class="name">Dzeno</h1>
         <div class="points">
-          2
+          0
         </div>
       </div>
 
     </div>
 
-    <div class="asi-team">
-      <div class="slider teamB">0</div>
-      <div class="img">
-        <img src="asi.jpg" />
+    <div class="asi-team teamB">
+      <div class="slider">
+        <div class="img">
+          <img src="asi.jpg" />
+        </div>
+        <div class="win-track"></div>
       </div>
 
       <div class="score">
         <h1 class="name">Asi</h1>
         <div class="points">
-          2
+          0
         </div>
       </div>
 
@@ -51,15 +55,10 @@
     <button is="google-cast-button" class="cast-btn">
       <img src="google-cast-logo.svg" alt="cast-icon" />
     </button>
-    <div class="play-btn">PLAY</div>
+    <div class="play-btn">NEW GAME</div>
+    <div class="refresh-btn">NEXT</div>
     <div class="spoiler-btn">SPOILER</div>
-    <div class="refresh-btn">REFRESH</div>
-    <div class="limit-btn">limit
-      <div class="num">
-        10
-      </div>
-    </div>
-
+  </div>
   </div>
 
 </div>
@@ -93,6 +92,8 @@ var state = {
 
 $(document).ready(function(){
 
+  startGame();
+
   $('.play-btn').on('click', function() {
     startGame();
   })
@@ -117,6 +118,7 @@ $(document).ready(function(){
 
 function startGame() {
   state.in_progress = true;
+  state.max_score = prompt('What\'s the max score');
   if(state.first_team === '') state.first_team = 'teamA';
   else state.first_team = state.first_team === 'teamA' ? 'teamB' : 'teamA';
   state.board = generateBoard(state.first_team);
@@ -129,15 +131,21 @@ function startGame() {
 function render() {
   $('#game').html('');
   $.each(state.words, function(i, word){
-    var classes = state.revealed.indexOf(i) < 0 ? 'word' : 'word revealed';
+    var classes = state.revealed.indexOf(i) >= 0 || !state.in_progress ? 'word revealed' : 'word';
     $('#game').append('<div class="' + classes + ' ' + state.board[i] + '" data-index="' + i + '">' + word + '</div>');
   });
   $('#game').append('<div class="clearfix"></div>');
 }
 
 function renderScore() {
-  $("#scoreboard .teamA").html(state.score[0]);
-  $("#scoreboard .teamB").html(state.score[1]);
+  $("#scoreboard .teamA .points").html(state.score[0]);
+  $("#scoreboard .teamB .points").html(state.score[1]);
+
+  $("#scoreboard .teamA .win-track").css('top', 100 - ((state.score[0] / state.max_score) * 100) + '%');
+  $("#scoreboard .teamB .win-track").css('top', 100 - ((state.score[1] / state.max_score) * 100) + '%');
+
+  $("#scoreboard .teamA .img").css('bottom', (state.score[0] / state.max_score) * 100 + '%');
+  $("#scoreboard .teamB .img").css('bottom', (state.score[1] / state.max_score) * 100 + '%');
 }
 
 function generateBoard(first) {
@@ -180,6 +188,7 @@ function checkForWinner(index) {
   state.in_progress = in_progress;
   if(!in_progress) {
     renderScore();
+    render();
   }
 }
 
