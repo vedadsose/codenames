@@ -1,282 +1,290 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #262d38;
+  font-family: 'Roboto', sans-serif;
+  background-color: #262d38;
+  margin: 0;
 }
 
 .wrap {
-    position: relative;
-    min-height: 80vh;
-    display: block;
-    margin-top: 10vh;
+  position: relative;
+  display: block;
+  height: 100vh;
 }
 
 #game {
-    width: 80%;
-    margin: 20px auto;
-    min-height: 650px;
+  width: 80%;
+  margin: 20px auto;
+  height: 80vh;
 }
 
 #game .word {
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
-    margin: 5px;
-    position: relative;
-    float: left;
-    width: 19%;
-    height: 120px;
-    max-height: 120px;
-    padding: 40px 0 50px 0;
-    font-family: Arial;
-    font-weight: 400;
-    text-align: center;
-    font-size: 22px;
-    border-radius: 5px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fcffff;
-    background: #383d4a;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+  position: relative;
+  float: left;
+  margin: 0.5%;
+  width: 19%;
+  height: 19%;
+  font-family: Arial;
+  font-weight: 400;
+  text-align: center;
+  font-size: 22px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fcffff;
+  background: #383d4a;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
 #game.spoiler .teamA, #game .word.revealed.teamA {
-    background: rgb(231, 76, 60);
+  background: rgb(231, 76, 60);
 }
 
 #game.spoiler .teamB, #game .word.revealed.teamB {
-    background: rgb(52, 152, 219);
+  background: rgb(52, 152, 219);
 }
 
 #game.spoiler .neutral, #game .word.revealed.neutral {
-    background: rgb(46, 204, 113);
+  background: rgb(46, 204, 113);
 }
 
 #game.spoiler .assasin, #game .word.revealed.assasin {
-    background: #2c3e50;
+  background: #2c3e50;
 }
 
 #game.spoiler .revealed {
-    opacity: 0.3;
+  opacity: 0.3;
 }
 
 #controls {
-    text-align: center;
-    margin-top: 20px;
-    z-index: 100;
-    position: absolute;
-    /* bottom: 0px; */
-    justify-content: center;
-    width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  z-index: 100;
+  position: absolute;
+  justify-content: center;
+  width: 100%;
+  height: 10vh;
 }
 
 .cast-btn {
-    display: inline-block;
-    width: 80px;
-    height: 40px;
-    background-color: #383d4a;
-    border: none;
-    border-radius: 20px;
-    margin: 0px 5px;
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  background-color: #383d4a;
+  border: none;
+  border-radius: 20px;
+  margin: 0px 5px;
 }
 
 .cast-btn img {
-    height: 25px;
-    width: 30px;
+  height: 25px;
+  width: 30px;
 }
 
 .play-btn {
-    display: inline-block;
-    vertical-align: top;
-    letter-spacing: 1px;
-    text-align: center;
-    line-height: 40px;
-    background: #3498db;
-    color: #fff;
-    padding: 0 30px;
-    border-radius: 20px;
-    margin: 0px 5px;
+  display: inline-block;
+  vertical-align: top;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 40px;
+  background: #3498db;
+  color: #fff;
+  padding: 0 30px;
+  border-radius: 20px;
+  margin: 0px 5px;
 }
 
 .spoiler-btn {
-    display: inline-block;
-    vertical-align: top;
-    background: #f39c12;
-    color: #fff;
-    padding: 0 30px;
-    letter-spacing: 1px;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 20px;
-    margin: 0px 5px;
+  display: inline-block;
+  vertical-align: top;
+  background: #f39c12;
+  color: #fff;
+  padding: 0 30px;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 20px;
+  margin: 0px 5px;
 }
 
 .refresh-btn {
-    display: inline-block;
-    vertical-align: top;
-    background: #383d4a;
-    color: #fff;
-    padding: 0 30px;
-    letter-spacing: 1px;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 20px;
-    margin: 0px 5px;
+  display: inline-block;
+  vertical-align: top;
+  background: #383d4a;
+  color: #fff;
+  padding: 0 30px;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 20px;
+  margin: 0px 5px;
 }
 
 .limit-btn {
-    display: inline-block;
-    vertical-align: top;
-    background: #383d4a;
-    color: #fff;
-    padding: 0 30px;
-    letter-spacing: 1px;
-    text-align: center;
-    height: 40px;
-    border-radius: 20px;
-    margin: 0px 5px;
-    position: relative;
+  display: inline-block;
+  vertical-align: top;
+  background: #383d4a;
+  color: #fff;
+  padding: 0 30px;
+  letter-spacing: 1px;
+  text-align: center;
+  height: 40px;
+  border-radius: 20px;
+  margin: 0px 5px;
+  position: relative;
 }
 
 .limit-btn .num {
-    background-color: #262d38;
-    border-radius: 20px;
+  background-color: #262d38;
+  border-radius: 20px;
 }
 
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
 }
 
 .modal.modal-visible {
-    display: block;
+  display: block;
 }
 
 .modal-view {
-    width: 600px;
-    background: #fff;
-    padding: 15px;
-    margin: 50px auto;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  width: 600px;
+  background: #fff;
+  padding: 15px;
+  margin: 50px auto;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 }
 
 .modal-view .question {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .team {
-    width: 49%;
-    float: left;
-    text-align: center;
-    padding: 15px;
-    box-sizing: border-box;
-    color: #fff;
+  width: 49%;
+  float: left;
+  text-align: center;
+  padding: 15px;
+  box-sizing: border-box;
+  color: #fff;
 }
 
 .team.teamA {
-    background: rgb(231, 76, 60);
-    margin-right: 2%;
+  background: rgb(231, 76, 60);
+  margin-right: 2%;
 }
 
 .team.teamB {
-    background: rgb(52, 152, 219);
+  background: rgb(52, 152, 219);
 }
 
 .clearfix {
-    clear: both;
+  clear: both;
 }
 
 #scoreboard {
-    height: 750px;
-    width: 90%;
-    position: absolute;
-    top: 0;
-    left: 5%;
+  height: 90vh;
+  width: 90%;
+  position: absolute;
+  top: 0;
+  left: 5%;
 }
 
 #scoreboard .slider {
-    width: 30px;
-    float: left;
-    padding: 10px;
-    box-sizing: border-box;
-    font-size: 20px;
-    color: #fff;
-    height: 90%;
-    background-color: #202531;
+  position: relative;
+  width: 30px;
+  float: left;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: #fff;
+  height: 90%;
+  background-color: #202531;
+}
+
+#scoreboard .slider .win-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: .5s top;
+}
+
+#scoreboard .teamA .win-track {
+  background-color: rgb(231, 76, 60);
+}
+
+#scoreboard .teamB .win-track {
+  background-color: rgb(52, 152, 219);
 }
 
 #scoreboard .teamA {
-    text-align: right;
-    /*  background: rgb(231, 76, 60); */
+  text-align: right;
+  /*  background: rgb(231, 76, 60); */
 }
 
 #scoreboard .teamB {
-    /*  background: rgb(52, 152, 219); */
-    float: right;
+  /*  background: rgb(52, 152, 219); */
+  float: right;
 }
 
 .dzeno-team, .asi-team {
-    height: 100%;
-    width: 30px;
-    display: inline;
+  height: 100%;
+  width: 30px;
+  display: inline;
 }
 
 .asi-team {
-    float: right;
-    position: relative;
+  float: right;
+  position: relative;
 }
 
+.asi-team .img,
 .dzeno-team .img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    overflow: hidden;
-    position: absolute;
-    bottom: 10%;
-    margin-left: -25px;
-}
-
-.asi-team .img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    overflow: hidden;
-    position: absolute;
-    margin-left: -25px;
-    bottom: 10%;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 0;
+  bottom: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: -25px;
+  transition: .5s bottom;
 }
 
 .img img {
-    height: 100%;
-    width: auto;
-    object-fit: cover
+  height: 100%;
+  width: auto;
+  object-fit: cover
 }
 
 .score {
-    position: absolute;
-    bottom: -15px;
-    left: -15px;
+  position: absolute;
+  bottom: -15px;
+  left: -15px;
 }
 
 .name {
-    font-size: 20px;
-    color: white;
-    margin: 0px;
-    margin-bottom: 10px;
-    font-weight: 200;
+  font-size: 20px;
+  color: white;
+  margin: 0px;
+  margin-bottom: 10px;
+  font-weight: 200;
 }
 
 .asi-team .score {
-    left: 0;
+  left: 0;
 }
 
 .points {
-    font-size: 42px;
-    color: white;
-    text-align: center;
+  font-size: 42px;
+  color: white;
+  text-align: center;
 }
