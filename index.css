@@ -109,7 +109,7 @@ body {
   margin: 0px 5px;
 }
 
-.refresh-btn {
+.next-btn {
   display: inline-block;
   vertical-align: top;
   background: #383d4a;
@@ -261,7 +261,7 @@ body {
 
 .img img {
   height: 100%;
-  width: auto;
+  width: 100%;
   object-fit: cover
 }
 

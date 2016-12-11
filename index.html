@@ -56,7 +56,7 @@
       <img src="google-cast-logo.svg" alt="cast-icon" />
     </button>
     <div class="play-btn">NEW GAME</div>
-    <div class="refresh-btn">NEXT</div>
+    <div class="next-btn">NEXT</div>
     <div class="spoiler-btn">SPOILER</div>
   </div>
   </div>
@@ -96,7 +96,11 @@ $(document).ready(function(){
 
   $('.play-btn').on('click', function() {
     startGame();
-  })
+  });
+
+  $('.next-btn').on('click', function() {
+    nextGame();
+  });
 
   $('.spoiler-btn').on('mouseenter mouseleave', function() {
     $('#game').toggleClass('spoiler');
@@ -117,8 +121,12 @@ $(document).ready(function(){
 })
 
 function startGame() {
-  state.in_progress = true;
   state.max_score = prompt('What\'s the max score');
+  nextGame()
+}
+
+function nextGame() {
+  state.in_progress = true;
   if(state.first_team === '') state.first_team = 'teamA';
   else state.first_team = state.first_team === 'teamA' ? 'teamB' : 'teamA';
   state.board = generateBoard(state.first_team);
