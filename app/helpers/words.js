@@ -1,4 +1,4 @@
-var rijeci = [
+export default [
    'Abdomen',
    'Abeceda',
    'Abortirati',

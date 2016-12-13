@@ -1,0 +1,68 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/vedad27/.nvm/versions/node/v4.5.0/bin/node',
+1 verbose cli   '/Users/vedad27/.nvm/versions/node/v4.5.0/bin/npm',
+1 verbose cli   'i',
+1 verbose cli   '-g',
+1 verbose cli   'eslint',
+1 verbose cli   '[eslint-plugins]' ]
+2 info using npm@2.15.9
+3 info using node@v4.5.0
+4 verbose install initial load of /Users/vedad27/.nvm/versions/node/v4.5.0/lib/package.json
+5 verbose readDependencies loading dependencies from /Users/vedad27/.nvm/versions/node/v4.5.0/lib/package.json
+6 silly cache add args [ 'eslint', null ]
+7 verbose cache add spec eslint
+8 silly cache add args [ '[eslint-plugins]', null ]
+9 verbose cache add spec [eslint-plugins]
+10 silly cache add parsed spec Result {
+10 silly cache add   raw: 'eslint',
+10 silly cache add   scope: null,
+10 silly cache add   name: 'eslint',
+10 silly cache add   rawSpec: '',
+10 silly cache add   spec: 'latest',
+10 silly cache add   type: 'tag' }
+11 silly addNamed eslint@latest
+12 verbose addNamed "latest" is being treated as a dist-tag for eslint
+13 info addNameTag [ 'eslint', 'latest' ]
+14 silly mapToRegistry name eslint
+15 silly mapToRegistry using default registry
+16 silly mapToRegistry registry https://registry.npmjs.org/
+17 silly mapToRegistry data Result {
+17 silly mapToRegistry   raw: 'eslint',
+17 silly mapToRegistry   scope: null,
+17 silly mapToRegistry   name: 'eslint',
+17 silly mapToRegistry   rawSpec: '',
+17 silly mapToRegistry   spec: 'latest',
+17 silly mapToRegistry   type: 'tag' }
+18 silly mapToRegistry uri https://registry.npmjs.org/eslint
+19 verbose addNameTag registry:https://registry.npmjs.org/eslint not in flight; fetching
+20 silly cache add parsed spec Result {
+20 silly cache add   raw: '[eslint-plugins]',
+20 silly cache add   scope: null,
+20 silly cache add   name: null,
+20 silly cache add   rawSpec: '[eslint-plugins]',
+20 silly cache add   spec: '/Users/vedad27/vs/codenames/app/style/[eslint-plugins]',
+20 silly cache add   type: 'local' }
+21 error addLocal Could not install /Users/vedad27/vs/codenames/app/style/[eslint-plugins]
+22 verbose get https://registry.npmjs.org/eslint not expired, no request
+23 silly addNameTag next cb for eslint with tag latest
+24 silly addNamed eslint@3.12.1
+25 verbose addNamed "3.12.1" is a plain semver version for eslint
+26 silly cache afterAdd eslint@3.12.1
+27 verbose afterAdd /Users/vedad27/.npm/eslint/3.12.1/package/package.json not in flight; writing
+28 verbose correctMkdir /Users/vedad27/.npm correctMkdir not in flight; initializing
+29 verbose afterAdd /Users/vedad27/.npm/eslint/3.12.1/package/package.json written
+30 verbose stack Error: ENOENT: no such file or directory, open '/Users/vedad27/vs/codenames/app/style/[eslint-plugins]'
+30 verbose stack     at Error (native)
+31 verbose cwd /Users/vedad27/vs/codenames/app/style
+32 error Darwin 16.0.0
+33 error argv "/Users/vedad27/.nvm/versions/node/v4.5.0/bin/node" "/Users/vedad27/.nvm/versions/node/v4.5.0/bin/npm" "i" "-g" "eslint" "[eslint-plugins]"
+34 error node v4.5.0
+35 error npm  v2.15.9
+36 error path /Users/vedad27/vs/codenames/app/style/[eslint-plugins]
+37 error code ENOENT
+38 error errno -2
+39 error syscall open
+40 error enoent ENOENT: no such file or directory, open '/Users/vedad27/vs/codenames/app/style/[eslint-plugins]'
+40 error enoent This is most likely not a problem with npm itself
+40 error enoent and is related to npm not being able to find a file.
+41 verbose exit [ -2, true ]
