@@ -11,6 +11,7 @@ module.exports = {
     'comma-dangle': 0
   },
   "env": {
-    "browser": true
+    browser: true,
+    mocha: true
   }
 };

@@ -41,8 +41,8 @@ const ScoreBoard = ({ teamA, teamB }) => (
 )
 
 ScoreBoard.propTypes = {
-  teamA: React.PropTypes.int,
-  teamB: React.PropTypes.int
+  teamA: React.PropTypes.number,
+  teamB: React.PropTypes.number
 }
 
 export default ScoreBoard
