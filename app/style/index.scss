@@ -84,6 +84,7 @@ body {
   border: none;
   border-radius: 20px;
   margin: 0px 5px;
+  outline: none;
 }
 
 .cast-btn img {
@@ -102,6 +103,8 @@ body {
   padding: 0 30px;
   border-radius: 20px;
   margin: 0px 5px;
+  border: none;
+  outline: none;
 }
 
 .spoiler-btn {
@@ -115,6 +118,8 @@ body {
   line-height: 40px;
   border-radius: 20px;
   margin: 0px 5px;
+  border: none;
+  outline: none;
 }
 
 .next-btn {
@@ -128,6 +133,8 @@ body {
   line-height: 40px;
   border-radius: 20px;
   margin: 0px 5px;
+  border: none;
+  outline: none;
 }
 
 .limit-btn {
@@ -242,6 +249,7 @@ body {
 }
 
 .teamA, .teamB {
+  position: relative;
   height: 100%;
   width: 30px;
   display: inline;
