@@ -20,9 +20,9 @@
   "jest": {
     "testRegex": "test.(js|jsx)$",
     "moduleNameMapper": {
-       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
-     }
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   },
   "homepage": "https://github.com/sibrahimpa1/codenames#readme",
   "devDependencies": {
@@ -48,7 +48,10 @@
   },
   "dependencies": {
     "babel-preset-es2015": "^6.18.0",
+    "classnames": "^2.2.5",
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-addons-test-utils": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "enzyme": "^2.6.0"
   }
 }
