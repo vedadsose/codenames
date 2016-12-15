@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Immutable from 'immutable'
 import Modal from 'react-modal'
-import cast from '../../chromecast'
+import cast from '../../helpers/chromecast'
 import ScoreBoard from '../ScoreBoard'
 import WordsGrid from '../WordsGrid'
 import Controls from '../Controls'
