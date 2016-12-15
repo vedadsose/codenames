@@ -1,9 +1,16 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: ['./app/index.jsx', 'webpack-hot-middleware/client'],
   output: {
     filename: 'bundle.js',
     path: './dist'
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Codenames',
+      template: 'app/helpers/template.ejs',
+    })
+  ],
   module: {
     loaders: [
       {

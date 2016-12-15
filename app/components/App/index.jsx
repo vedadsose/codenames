@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Immutable from 'immutable'
 import Modal from 'react-modal'
+import cast from '../../chromecast'
 import ScoreBoard from '../ScoreBoard'
 import WordsGrid from '../WordsGrid'
 import Controls from '../Controls'
@@ -19,6 +20,10 @@ export default class App extends Component {
       maxScore: 0,
       assasin: false
     }
+  }
+
+  componentDidUpdate() {
+    cast(this.state)
   }
 
   newGame(maxScore) {
@@ -89,7 +94,8 @@ export default class App extends Component {
       this.updateScore('teamB')
     } else if (this.state.board[index] === 'assasin') {
       this.setState({
-        assasin: true
+        assasin: true,
+        inProgress: false
       })
     }
   }
