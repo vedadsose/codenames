@@ -4,6 +4,9 @@ $themeColor: #262d38;
 $teamA: rgb(231, 76, 60);
 $teamB: rgb(52, 152, 219);
 
+@import '../components/ScoreBoard/style.scss';
+@import './modals.scss';
+
 body {
   font-family: 'Roboto', sans-serif;
   background-color: $themeColor;
@@ -69,7 +72,7 @@ body {
 #controls {
   text-align: center;
   margin-top: 20px;
-  z-index: 100;
+  z-index: 10;
   position: absolute;
   justify-content: center;
   width: 100%;
@@ -156,32 +159,6 @@ body {
   border-radius: 20px;
 }
 
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-}
-
-.modal.modal-visible {
-  display: block;
-}
-
-.modal-view {
-  width: 600px;
-  background: #fff;
-  padding: 15px;
-  margin: 50px auto;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
-}
-
-.modal-view .question {
-  font-size: 20px;
-}
-
 .team {
   width: 49%;
   float: left;
@@ -204,101 +181,33 @@ body {
   clear: both;
 }
 
-#scoreboard {
-  height: 90vh;
-  width: 90%;
-  position: absolute;
-  top: 0;
-  left: 5%;
+.btn {
+  padding: 10px 16px;
+  margin: 0 5px;
+  background-color: #eee;
+  border: none;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  transition: .2s opacity;
+
+  &.btn-blue {
+    background-color: $teamB;
+    color: #fff;
+  }
+
+  &.btn-red {
+    background-color: $teamA;
+    color: #fff;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
-#scoreboard .slider {
-  position: relative;
-  width: 30px;
-  float: left;
-  padding: 10px;
-  box-sizing: border-box;
-  font-size: 20px;
-  color: #fff;
-  height: 90%;
-  background-color: #202531;
-}
-
-#scoreboard .slider .win-track {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transition: .5s top;
-}
-
-#scoreboard .teamA .win-track {
-  background-color: $teamA;
-}
-
-#scoreboard .teamB .win-track {
-  background-color: $teamB;
-}
-
-#scoreboard .teamA {
-  float: left;
-}
-
-#scoreboard .teamB {
-  float: right;
-}
-
-.teamA, .teamB {
-  position: relative;
-  height: 100%;
-  width: 30px;
-  display: inline;
-}
-
-.teamA {
-  float: right;
-  position: relative;
-}
-
-.teamA .img,
-.teamB .img {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  left: 0;
-  bottom: 0;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-left: -25px;
-  transition: .5s bottom;
-}
-
-.img img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover
-}
-
-.score {
-  position: absolute;
-  bottom: -15px;
-  left: -15px;
-}
-
-.name {
-  font-size: 20px;
-  color: white;
-  margin: 0px;
-  margin-bottom: 10px;
-  font-weight: 200;
-}
-
-.teamA .score {
-  left: 0;
-}
-
-.points {
-  font-size: 42px;
-  color: white;
+.text-center {
   text-align: center;
 }

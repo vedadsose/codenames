@@ -1,7 +1,7 @@
 import React from 'react'
 
-const top = (score, maxScore) => `${100 - ((score / maxScore) * 100)}%`
-const bottom = (score, maxScore) => `${((score / maxScore) * 100)}%`
+const top = (score, maxScore) => `${90 - ((score / maxScore) * 90)}%`
+const bottom = (score, maxScore) => `${((score / maxScore) * 90)}%`
 
 const Score = ({ id, name, score, image, maxScore }) => (
   <div className={id}>
