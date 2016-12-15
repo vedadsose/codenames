@@ -9,6 +9,7 @@ const WordsGrid = ({ words, revealed, board, spoiler, handleClick }) => (
         index={i}
         word={word}
         revealed={(revealed && revealed[i]) || spoiler}
+        dimmed={(revealed && revealed[i]) && spoiler}
         type={board && board[i]}
         handleClick={handleClick}
       />

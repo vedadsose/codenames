@@ -3,6 +3,8 @@
 $themeColor: #262d38;
 $teamA: rgb(231, 76, 60);
 $teamB: rgb(52, 152, 219);
+$neutral: rgb(46, 204, 113);
+$assasin: #2c3e50;
 
 @import '../components/ScoreBoard/style.scss';
 @import './modals.scss';
@@ -49,24 +51,30 @@ body {
   }
 }
 
-#game.spoiler .teamA, #game .word.revealed.teamA {
-  background: rgb(231, 76, 60);
-}
+#game {
+  .word {
+    &.revealed {
+      &.teamA {
+        background: $teamA;
+      }
 
-#game.spoiler .teamB, #game .word.revealed.teamB {
-  background: rgb(52, 152, 219);
-}
+      &.teamB {
+        background: $teamB;
+      }
 
-#game.spoiler .neutral, #game .word.revealed.neutral {
-  background: rgb(46, 204, 113);
-}
+      &.neutral {
+        background: $neutral;
+      }
 
-#game.spoiler .assasin, #game .word.revealed.assasin {
-  background: #2c3e50;
-}
+      &.assasin {
+        background: $assasin;
+      }
+    }
 
-#game.spoiler .revealed {
-  opacity: 0.3;
+    &.dimmed {
+      opacity: 0.3;
+    }
+  }
 }
 
 #controls {
