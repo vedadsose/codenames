@@ -145,7 +145,7 @@ export default class App extends Component {
 
         <Modal
           contentLabel="Game over"
-          isOpen={inProgress && (maxScore === score.teamA || maxScore === score.teamB)}
+          isOpen={maxScore > 0 && (maxScore === score.teamA || maxScore === score.teamB)}
           className="modal"
           overlayClassName="modal-overlay"
         >
