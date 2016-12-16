@@ -1,14 +1,14 @@
 import React from 'react'
 import Word from '../Word'
 
-const WordsGrid = ({ words, revealed, board, spoiler, handleClick }) => (
+const WordsGrid = ({ words, revealed, board, spoiler, inProgress, handleClick }) => (
   <div id="game">
     { words && words.map((word, i) =>
       <Word
         key={i}
         index={i}
         word={word}
-        revealed={(revealed && revealed[i]) || spoiler}
+        revealed={(revealed && revealed[i]) || spoiler || !inProgress}
         dimmed={(revealed && revealed[i]) && spoiler}
         type={board && board[i]}
         handleClick={handleClick}
@@ -22,6 +22,7 @@ WordsGrid.propTypes = {
   revealed: React.PropTypes.arrayOf(React.PropTypes.bool),
   board: React.PropTypes.arrayOf(React.PropTypes.string),
   spoiler: React.PropTypes.bool,
+  inProgress: React.PropTypes.bool,
   handleClick: React.PropTypes.func
 }
 

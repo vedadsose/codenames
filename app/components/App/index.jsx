@@ -110,7 +110,8 @@ export default class App extends Component {
           words={words}
           revealed={revealed}
           board={board}
-          spoiler={spoiler || !inProgress}
+          spoiler={spoiler}
+          inProgress={inProgress}
           handleClick={index => this.revealWord(index)}
         />
 

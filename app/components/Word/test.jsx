@@ -22,4 +22,9 @@ describe('Word', () => {
     const wrapper = shallow(<Word revealed />)
     expect(wrapper.hasClass('revealed')).toEqual(true)
   })
+
+  it('dims the word in spoiler mode if it\'s revealed', () => {
+    const wrapper = shallow(<Word dimmed />)
+    expect(wrapper.hasClass('dimmed')).toEqual(true)
+  })
 })
