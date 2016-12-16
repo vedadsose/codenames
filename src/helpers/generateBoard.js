@@ -1,4 +1,4 @@
-import shuffle from './shuffle'
+import _ from 'underscore'
 
 export default (first) => {
   const teamA = first === 0 ? 9 : 8;
@@ -10,5 +10,5 @@ export default (first) => {
   board.fill('neutral', teamA + teamB);
   board[board.length - 1] = 'assasin';
 
-  return shuffle(board);
+  return _.shuffle(board);
 }
