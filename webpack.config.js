@@ -1,16 +1,36 @@
+var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-module.exports = {
-  entry: ['./src/index.jsx', 'webpack-hot-middleware/client'],
-  output: {
-    filename: 'bundle.js',
-    path: './dist'
-  },
-  plugins: [
+var _ = require('underscore');
+
+const plugins = {
+  shared: [
     new HtmlWebpackPlugin({
       title: 'Codenames',
       template: 'src/helpers/template.ejs',
     })
   ],
+  development: [],
+  production: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  ],
+}
+
+function getPlugins(env) {
+  return _.flatten([plugins.shared, plugins[env]])
+}
+
+module.exports = {
+  entry: process.env.NODE_ENV === 'production' ? './src/index.jsx' : ['./src/index.jsx', 'webpack-hot-middleware/client'],
+  output: {
+    filename: 'bundle.js',
+    path: './dist'
+  },
+  plugins: getPlugins(process.env.NODE_ENV || 'development'),
   module: {
     loaders: [
       {
