@@ -1,6 +1,4 @@
-## Codenames
-
-[![Build Status](https://travis-ci.org/vedadsose/codenames.svg?branch=master)](https://travis-ci.org/vedadsose/codenames)
+## Codenames [![Build Status](https://travis-ci.org/vedadsose/codenames.svg?branch=master)](https://travis-ci.org/vedadsose/codenames)
 
 Codenames is a 2015 board game designed by Vlaada Chvátil. The game is typically for two teams of at least two players each, but can also be played by two or three players with just one person simply acting as the "Spymaster" (i.e. clue-giver) for the other one or two. Rules for these variants are provided in the game instructions.
 
