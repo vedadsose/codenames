@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --content-base dist/ --port 9000 --inline --hot",
     "build": "NODE_ENV=production webpack -p",
-    "test": "node ./node_modules/jest/bin/jest.js"
+    "test": "node ./node_modules/jest/bin/jest.js",
+    "deploy": "npm run build && . ./scripts/deploy.sh"
   },
   "repository": {
     "type": "git",

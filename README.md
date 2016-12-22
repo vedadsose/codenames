@@ -2,6 +2,17 @@
 
 Codenames is a 2015 board game designed by Vlaada Chvátil. The game is typically for two teams of at least two players each, but can also be played by two or three players with just one person simply acting as the "Spymaster" (i.e. clue-giver) for the other one or two. Rules for these variants are provided in the game instructions.
 
+## Development
+Codenames is using webpack, to start a dev server run:
+```
+npm start
+```
+
+And to get a production build use: 
+```
+npm run build
+```
+
 ## Rules
 Codenames has an espionage setting, in which players in teams try to identify their own team's secret agents, based on their agents' code names. Codenames is a game of guessing which code names (words) in a set are related to a hint-word given by another player.
 
