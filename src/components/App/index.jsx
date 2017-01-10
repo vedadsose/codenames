@@ -14,11 +14,11 @@ export default class App extends Component {
     this.state = {
       score: {
         teamA: 0,
-        teamB: 0
+        teamB: 0,
       },
       spoiler: false,
+      assasin: false,
       maxScore: 0,
-      assasin: false
     }
   }
 
@@ -29,7 +29,7 @@ export default class App extends Component {
   newGame(maxScore) {
     this.setState({
       first: 0, // 0 - Team A, 1 - Team B
-      maxScore
+      maxScore,
     })
 
     this.nextBoard()
@@ -43,14 +43,14 @@ export default class App extends Component {
         revealed: new Array(25).fill(false),
         first,
         board: generateBoard(first),
-        inProgress: true
+        inProgress: true,
       }
     })
   }
 
   toggleSpoiler() {
     this.setState(prevState => ({
-      spoiler: !prevState.spoiler
+      spoiler: !prevState.spoiler,
     }))
   }
 
@@ -60,7 +60,7 @@ export default class App extends Component {
       return {
         score,
         assasin: false,
-        inProgress: false
+        inProgress: false,
       }
     })
   }
@@ -70,8 +70,8 @@ export default class App extends Component {
       maxScore: 0,
       score: {
         teamA: 0,
-        teamB: 0
-      }
+        teamB: 0,
+      },
     })
   }
 
@@ -79,7 +79,7 @@ export default class App extends Component {
     const revealed = this.state.revealed.concat()
     revealed[index] = true
     this.setState({
-      revealed
+      revealed,
     })
 
     const totalFields = fieldValue => field => field === fieldValue

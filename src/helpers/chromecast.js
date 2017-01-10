@@ -1,10 +1,12 @@
 import './cast_sender'
 
 const initializeCastApi = () => {
-  cast.framework && cast.framework.CastContext.getInstance().setOptions({
-    receiverApplicationId: 'B70644E6',
-    autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
-  })
+  if (typeof cast !== 'undefined') {
+    cast.framework && cast.framework.CastContext.getInstance().setOptions({
+      receiverApplicationId: 'B70644E6',
+      autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
+    })
+  }
 }
 
 window['__onGCastApiAvailable'] = function(isAvailable) {
@@ -14,8 +16,8 @@ window['__onGCastApiAvailable'] = function(isAvailable) {
 }
 
 export default (state) => {
-  const castSession = cast.framework && cast.framework.CastContext.getInstance().getCurrentSession()
-  if (castSession) {
+  if (typeof cast !== 'undefined') {
+    const castSession = cast.framework && cast.framework.CastContext.getInstance().getCurrentSession()
     castSession.sendMessage('urn:x-cast:asocijacije', state)
   }
 }
