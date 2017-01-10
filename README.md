@@ -2,6 +2,21 @@
 
 Codenames is a 2015 board game designed by Vlaada Chvátil. The game is typically for two teams of at least two players each, but can also be played by two or three players with just one person simply acting as the "Spymaster" (i.e. clue-giver) for the other one or two. Rules for these variants are provided in the game instructions.
 
+New 25 words are generated at the start of each game, and the team that has more words starts first. When the spymaster gives clues to players they make their guesses and the spymaster clicks on the words they guessed which get revealed instantly.
+
+Since only spymasters can see all the words with their color before they were revealed we created a Chromecast Extension so other players can only see the color of revealed/guessed words.
+
+## Screenshots
+
+<h3 align="center">
+  <img src="assets/screens.png" alt="Codenames Screens" />
+</h3>
+
+## Future
+- I'd love to have support for more languages(only Bosnian/Croatian/Serbian is supported now), and everyone is invited to help.
+
+- Write a better Rule section of the README (this one is just copied from Wikipedia)
+
 ## Development
 Codenames is using webpack, to start a dev server run:
 ```
@@ -35,3 +50,4 @@ After a spymaster gives the hint with its word and number, their field operative
 It is very important that the spymasters cover the code name cards with an identity card without giving any other clues, verbal or non-verbal, as to the field operatives' success in correctly using any hints. As much as possible, even emotional cues should be avoided. The field operatives should only know the identity uncovered each time. In particular, they should not know whether an uncovered agent of their own color was one that their spymaster meant to lead them to with that particular turn's hint or not. Such information really can affect later guesses and turns. (For instance, given a hint of "example 3", and identifying three of their agents but being told that one of them hadn't been one of those hinted at by "example 3", the players will naturally look for another code name related to the word "example" on that or a future turn. And if they are told that all three of their guesses were the ones hinted at, they won't possibly waste effort on looking for more related to that hint. The uncertainty and possible carry-over of hints between turns is part of the play.) Similarly, spymasters should avoid looking too closely at their own team's code name cards as the field operatives guess, and field operatives should avoid looking at the spymaster's eyes for hints.
 
 The game ends when all of one team's agents are identified (winning the game for that team), or when one team has identified the assassin (losing the game). There is no "final turn to catch up"; the team which plays first already has to identify one more agent than the other team.
+
