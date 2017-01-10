@@ -9,7 +9,7 @@ Since only spymasters can see all the words with their color before they were re
 ## Screenshots
 
 <h3 align="center">
-  <img src="assets/screens.png" alt="Codenames Screens" />
+  <img src="assets/screens.jpg" alt="Codenames Screens" />
 </h3>
 
 ## Future
